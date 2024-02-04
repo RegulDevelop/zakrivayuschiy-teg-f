@@ -12,3 +12,108 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* Анимация сердцевины */
+
+.like-icon .core {
+  transition: fill 0.3s 0.03s ease;
+}
+
+.like-icon:hover .core {
+  fill: var(--contourFillColor, #000);
+  transition: fill 0.3s ease;
+}
+
+.like-icon:active .core {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s ease;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s ease;
+}
+
+/* Анимация основного тела сердца */
+
+.like-icon .main-body {
+  transition: fill 0.3s ease;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contourFillColor, #000);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.like-icon:active .main-body {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s 0.05s ease;
+}
+
+/* Анимация контура сердца */
+
+.like-icon .contour {
+  transition: fill 0.1s ease;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s 0.06s ease;
+}
+
+/* Анимация увеличения сердца и искр */
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart 0.3s 0.1s ease-in;
+}
+
+/* Анимация стрелки */
+
+@keyframes arrow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+/* Анимация увеличения сердца */
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  100% {
+    transform: scale(1.5);
+    transform-origin: center center;
+  }
+}
+
+/* Анимация искр сердца */
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

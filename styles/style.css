@@ -15,42 +15,42 @@
 
 /* Наложение фильтра на изображение */
 
-.image-filter_1 {
+.image-filter_beginning {
   filter: grayscale(0.9);
 }
 
-.image-filter_2 {
+.image-filter_calm {
   filter: blur(0.2rem);
 }
 
-.image-filter_3 {
+.image-filter_rubik {
   filter: saturate(160%);
 }
 
-.image-filter_4 {
+.image-filter_perfectionist {
   filter: contrast(60%);
 }
 
-.image-filter_5 {
+.image-filter_help {
   filter: brightness(130%);
 }
 
-.image-filter_6 {
+.image-filter_bombically {
   filter: sepia(70%);
 }
 
-.image-filter_7 {
+.image-filter_yoda {
   filter: invert(1);
 }
 
-.image-filter_8 {
+.image-filter_here {
   filter: sepia(1) contrast(1.5) brightness(140%);
 }
 
 /* page */
 
 .page {
-  font-family: var(--fontInter, 'Inter-Variable', 'Inter', sans-serif);
+  font-family: var(--fontInter, sans-serif);
   font-variation-settings: 'wght' var(--fontWeightMobile, 400);
   background-image: var(
     --backgroundImage,
@@ -69,10 +69,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-inline-size: 696px;
+  max-inline-size: 700px;
+  min-inline-size: 375px;
   min-block-size: 323px;
   border: 2px solid var(--accentColor, #000);
-  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--fontPressStart2P, sans-serif);
   background-color: var(--backgroundColor, #fff);
   margin: 102px auto;
 }
@@ -92,10 +93,12 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  align-items: start;
   gap: 8px;
   margin-block: 18px;
+  padding-inline-start: 20px;
 }
+
+/* Кнопки смены цветовой темы сайта */
 
 .theme-menu__button {
   position: relative;
@@ -106,8 +109,6 @@
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
-
-/* Анимация кнопок */
 
 .theme-menu__button:hover {
   opacity: 0.6;
@@ -123,16 +124,6 @@
   position: absolute;
   left: -16px;
   animation: arrow 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes arrow {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(4px);
-  }
 }
 
 .theme-menu__button:focus {
@@ -160,7 +151,8 @@
 .main {
   display: grid;
   gap: 50px;
-  max-inline-size: 696px;
+  max-inline-size: 700px;
+  min-inline-size: 375px;
   margin: 0 auto;
 }
 
@@ -177,8 +169,7 @@
 .card__title {
   font-variation-settings: 'wght' var(--fontWeightDesctop, 700);
   font-size: 18px;
-  border-block-end: 2px solid var(--accentColor, #000);
-  padding: 6px 8px;
+  padding: 4px 10px;
 }
 
 .card__image-block {
@@ -190,11 +181,16 @@
   z-index: 1;
   top: 25px;
   right: 25px;
-  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--fontPressStart2P, sans-serif);
   font-size: 14px;
   text-transform: uppercase;
   opacity: 0.5;
   text-shadow: 1px var(--backgroundColor, #fff);
+}
+
+.card__image-block {
+  border-block-start: 2px solid var(--accentColor, #000);
+  border-block-end: 2px solid var(--accentColor, #000);
 }
 
 .card__image {
@@ -205,16 +201,15 @@
   inline-size: 100%;
 }
 
+.card__text-block {
+  display: grid;
+  gap: 25px;
+  margin: 25px;
+}
+
 .card__text {
   line-height: 21px;
   font-size: 18px;
-  border-block-start: 2px solid var(--accentColor, #000);
-  padding: 25px 25px 27px 25px;
-}
-
-.card__text-memories {
-  font-size: 18px;
-  padding: 0 25px 25px 25px;
 }
 
 .button {
@@ -222,7 +217,7 @@
   background-color: transparent;
   cursor: pointer;
   border: 2px solid var(--accentColor, #000);
-  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--fontPressStart2P, sans-serif);
   font-size: 14px;
   line-height: 0.9;
 }
@@ -233,6 +228,8 @@
   gap: 4px;
 }
 
+/* Кнопка сердце */
+
 .card__icon-button {
   display: flex;
   align-items: center;
@@ -242,8 +239,6 @@
   padding: 0;
   cursor: pointer;
 }
-
-/* Анимация кнопко сердца */
 
 .card__icon-button:focus {
   outline: none;
@@ -257,71 +252,6 @@
 .like-icon {
   inline-size: 39px;
   block-size: 36px;
-  transition: fill 1s ease-in-out;
-}
-
-.core {
-  transition: fill 0.3s 0.03s ease;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--contourFillColor, #000);
-  transition: fill 0.3s ease;
-}
-
-.main-body {
-  transition: fill 0.3s ease;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--contourFillColor, #000);
-  transition: fill 0.3s 0.05s ease;
-}
-
-.card__icon-button:active .core {
-  fill: var(--contourFillColorActive, #ff0000);
-  transition: fill 0.3s ease;
-}
-
-.card__icon-button:active .main-body {
-  fill: var(--contourFillColorActive, #ff0000);
-  transition: fill 0.3s 0.05s ease;
-}
-
-.card__icon-button:active .contour {
-  fill: var(--contourFillColorActive, #ff0000);
-  transition: fill 0.3s 0.06s ease;
-}
-
-.card__icon-button:active .heart {
-  animation: heart 0.3s ease-in;
-}
-
-@keyframes heart {
-  0% {
-    transform: scale(1);
-    transform-origin: center center;
-  }
-
-  100% {
-    transform: scale(1.5);
-    transform-origin: center center;
-  }
-}
-
-.sparks {
-  opacity: 0;
-}
-
-.card__icon-button:active .sparks {
-  opacity: 1;
-  transition: opacity 0.3s 0.3s ease-in;
-}
-
-.like-icon.is-liked .contour,
-.like-icon.is-liked .main-body,
-.like-icon.is-liked .core {
-  fill: var(--contourFillColorActive, #ff0000);
 }
 
 /* Кнопка Like */
@@ -333,21 +263,24 @@
   margin: 0 25px 25px 0;
 }
 
-/* Анимация кнопок Like и Сохранить на память */
+/* Анимация кнопок Like и Сохранить на память, OK */
 
 .card__like-button:focus,
-.save__button:focus {
+.save__button:focus,
+.dialog__button:focus {
   outline: none;
 }
 
 .card__like-button:focus-visible,
-.save__button:focus-visible {
+.save__button:focus-visible,
+.dialog__button:focus-visible {
   box-shadow: 2px 2px 0 var(--accentColor, #000);
   transition: box-shadow 0.3s ease;
 }
 
 .card__like-button::before,
-.save__button::before {
+.save__button::before,
+.dialog__button::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -358,7 +291,8 @@
 }
 
 .card__like-button:hover::before,
-.save__button:hover::before {
+.save__button:hover::before,
+.dialog__button:hover::before {
   transform: scaleX(1);
 }
 
@@ -408,7 +342,7 @@
   background-color: var(--backgroundColor, #fff);
   border: 2px solid var(--accentColor, #000);
   color: var(--accentColor, #000);
-  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--fontPressStart2P, sans-serif);
   font-size: 14px;
 }
 
@@ -429,9 +363,6 @@
   min-inline-size: 257px;
   block-size: 38px;
   line-height: 0.9;
-  background-color: var(--backgroundColor, #fff);
-  border: 2px solid var(--accentColor, #000);
-  cursor: pointer;
   text-transform: uppercase;
 }
 
@@ -453,7 +384,7 @@
   .save__button {
     flex-direction: row;
     inline-size: 335px;
-    block-size: 51px;
+    block-size: 58px;
   }
 
   .save__icon {
@@ -462,7 +393,7 @@
   }
 
   .header {
-    min-block-size: 370px;
+    min-block-size: 368px;
   }
 
   .header__title {
