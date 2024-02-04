@@ -12,9 +12,457 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
-*/
+
+/* Наложение фильтра на изображение */
+
+.image-filter_1 {
+  filter: grayscale(0.9);
+}
+
+.image-filter_2 {
+  filter: blur(0.2rem);
+}
+
+.image-filter_3 {
+  filter: saturate(160%);
+}
+
+.image-filter_4 {
+  filter: contrast(60%);
+}
+
+.image-filter_5 {
+  filter: brightness(130%);
+}
+
+.image-filter_6 {
+  filter: sepia(70%);
+}
+
+.image-filter_7 {
+  filter: invert(1);
+}
+
+.image-filter_8 {
+  filter: sepia(1) contrast(1.5) brightness(140%);
+}
+
+/* page */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  font-family: var(--fontInter, 'Inter-Variable', 'Inter', sans-serif);
+  font-variation-settings: 'wgth' var(--fontWeightMobile, 400);
+  background-image: var(
+    --backgroundImage,
+    repeating-linear-gradient(to left, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a)
+  );
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--accentColor, #000);
+}
+
+/* Заголовок сайта */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-inline-size: 696px;
+  min-block-size: 323px;
+  border: 2px solid var(--accentColor, #000);
+  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  background-color: var(--backgroundColor, #fff);
+  margin: 102px auto;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+  margin-block-start: 120px;
+}
+
+.header__text {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+  margin-block-start: 20px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  margin-block: 18px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Анимация кнопок */
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -16px;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes arrow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 2px;
+  margin-block-start: 3px;
+  transition: transform 0.3s ease;
+  background-color: var(--accentColor, #000);
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Блок с карточками */
+
+.main {
+  display: grid;
+  gap: 50px;
+  max-inline-size: 696px;
+  margin: 0 auto;
+}
+
+.card__item {
+  border: 2px solid var(--accentColor, #000);
+  background-color: var(--backgroundColor, #fff);
+}
+
+.card__title {
+  font-weight: var(--fontWeightDesctop, 700);
+  font-size: 18px;
+  border-block-end: 2px solid var(--accentColor, #000);
+  padding: 6px 8px;
+}
+
+.card__image-block {
+  position: relative;
+}
+
+.card__label {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  right: 25px;
+  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-shadow: 1px var(--backgroundColor, #fff);
+}
+
+.card__image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.card__text {
+  line-height: 21px;
+  font-size: 18px;
+  border-block-start: 2px solid var(--accentColor, #000);
+  padding: 25px 25px 27px 25px;
+}
+
+.card__text-memories {
+  font-size: 18px;
+  padding: 0 25px 25px 25px;
+}
+
+.button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid var(--accentColor, #000);
+  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+  line-height: 0.9;
+}
+
+.card__like-block {
+  display: flex;
+  justify-content: end;
+  gap: 4px;
+}
+
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  border-color: transparent;
+  background-color: transparent;
+  block-size: 38px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Анимация кнопко сердца */
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accentColor, #000);
+  transition: border 0.3s ease;
+}
+
+.like-icon {
+  inline-size: 39px;
+  block-size: 36px;
+  transition: fill 1s ease-in-out;
+}
+
+.core {
+  transition: fill 0.3s 0.03s ease;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--contourFillColor, #000);
+  transition: fill 0.3s ease;
+}
+
+.main-body {
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--contourFillColor, #000);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.card__icon-button:active .core {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s 0.05s ease;
+}
+
+.card__icon-button:active .contour {
+  fill: var(--contourFillColorActive, #ff0000);
+  transition: fill 0.3s 0.06s ease;
+}
+
+.card__icon-button:active .heart {
+  animation: heart 0.3s ease-in;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  100% {
+    transform: scale(1.5);
+    transform-origin: center center;
+  }
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.card__icon-button:active .sparks {
+  opacity: 1;
+  transition: opacity 0.3s 0.3s ease-in;
+}
+
+.like-icon.is-liked .contour,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .core {
+  fill: var(--contourFillColorActive, #ff0000);
+}
+
+/* Кнопка Like */
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  padding: 9px 17px;
+  margin: 0 25px 25px 0;
+}
+
+/* Анимация кнопок Like и Сохранить на память */
+
+.card__like-button:focus,
+.save__button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible,
+.save__button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accentColor, #000);
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button::before,
+.save__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  background-color: var(--accentColor, #000);
+}
+
+.card__like-button:hover::before,
+.save__button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text,
+.save__icon {
+  position: relative;
+  z-index: 1;
+  color: var(--buttonTextColor, #fff);
+  mix-blend-mode: difference;
+}
+
+/* Кнопка сохранить на память */
+
+.save {
+  display: grid;
+  justify-content: center;
+  margin-block-end: 100px;
+}
+
+.save__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  inline-size: 306px;
+  block-size: 80px;
+  background-color: var(--backgroundColor, #fff);
+}
+
+.save__icon {
+  inline-size: 28px;
+  block-size: 28px;
+}
+
+/* Модальное окно */
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-inline-size: 357px;
+  min-inline-size: 341px;
+  block-size: 195px;
+  background-color: var(--backgroundColor, #fff);
+  border: 2px solid var(--accentColor, #000);
+  color: var(--accentColor, #000);
+  font-family: var(--fontPressStart2P, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+}
+
+.dialog__block {
+  display: grid;
+  grid-template-columns: 39px 200px;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__text {
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  max-inline-size: 293px;
+  min-inline-size: 257px;
+  block-size: 38px;
+  line-height: 0.9;
+  background-color: var(--backgroundColor, #fff);
+  border: 2px solid var(--accentColor, #000);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+@supports (
+  (text-shadow: 1px var(--backgroundColor, #fff)) or
+    (-webkit-text-stroke: 1px var(--backgroundColor, #fff))
+) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--backgroundColor, #fff);
+    text-shadow: 1px var(--backgroundColor, #fff);
+    text-shadow: none;
+  }
+}
+
+@media (width >= 1440px) {
+  .save__button {
+    flex-direction: row;
+    inline-size: 335px;
+    block-size: 51px;
+  }
+
+  .save__icon {
+    inline-size: 21px;
+    block-size: 21px;
+  }
+
+  .header {
+    min-block-size: 370px;
+  }
+
+  .header__title {
+    margin-block-start: 136px;
+  }
 }

@@ -1,1 +1,34 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  /* Шрифт */
+  --fontInter: 'Inter-Variable';
+  --fontPressStart2P: 'PressStart2P-Regular';
+  /* Вес вариативного шрифта */
+  --fontWeightMobile: 400;
+  --fontWeightDesctop: 700;
+
+  /* Изображение фона */
+  --backgroundImage: repeating-linear-gradient(
+      to left,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  /* Цвет фона */
+  --backgroundColor: #fff;
+
+  /* Акцентный цвет */
+  --accentColor: #000;
+
+  /* Цвет текста кнопки */
+  --buttonTextColor: #fff;
+
+  /* Цвет контура сердца */
+  --outlineColor: #000;
+  /* Цвет заливки контура */
+  --contourFillColor: #000;
+  /* Цвет заливки контура при active */
+  --contourFillColorActive: #ff0000;
+}
