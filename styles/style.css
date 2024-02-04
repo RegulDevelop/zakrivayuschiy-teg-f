@@ -51,7 +51,7 @@
 
 .page {
   font-family: var(--fontInter, 'Inter-Variable', 'Inter', sans-serif);
-  font-variation-settings: 'wgth' var(--fontWeightMobile, 400);
+  font-variation-settings: 'wght' var(--fontWeightMobile, 400);
   background-image: var(
     --backgroundImage,
     repeating-linear-gradient(to left, #d3d3d3 0 2px, transparent 2px 4px),
@@ -164,6 +164,11 @@
   margin: 0 auto;
 }
 
+.card__list {
+  display: grid;
+  gap: 50px;
+}
+
 .card__item {
   border: 2px solid var(--accentColor, #000);
   background-color: var(--backgroundColor, #fff);
@@ -214,7 +219,6 @@
 
 .button {
   position: relative;
-  border: none;
   background-color: transparent;
   cursor: pointer;
   border: 2px solid var(--accentColor, #000);
@@ -442,7 +446,6 @@
   .card__label {
     -webkit-text-stroke: 1px var(--backgroundColor, #fff);
     text-shadow: 1px var(--backgroundColor, #fff);
-    text-shadow: none;
   }
 }
 
